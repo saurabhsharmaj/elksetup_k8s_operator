@@ -7,7 +7,7 @@ wait to elastic cluster green.
 
 nginx.bat
 
-update /etc/hosts 
+update /etc/hosts  in C:\Windows\System32\drivers\etc\hosts
 
 to view credentials execute the powershell script.
 
