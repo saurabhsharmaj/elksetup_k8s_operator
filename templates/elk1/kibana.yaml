@@ -1,0 +1,18 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: kibana1
+  namespace: elastic
+spec:
+  version: 9.1.0
+  count: 1
+  elasticsearchRef:
+    name: elasticsearch1
+  http:
+    service:
+      spec:
+        type: NodePort
+        ports:
+        - port: 5601
+          targetPort: 5601
+          nodePort: 30601

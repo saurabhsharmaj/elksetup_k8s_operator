@@ -1,0 +1,67 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: elastic-ingress
+  namespace: elastic
+
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/proxy-ssl-verify: "off"
+
+spec:
+
+  ingressClassName: nginx
+
+  tls:
+  - secretName: local-tls
+    hosts:
+      - es1.local
+      - es2.local
+      - kb1.local
+      - kb2.local
+
+  rules:
+
+  - host: es1.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: elasticsearch1-es-http
+            port:
+              number: 9200
+
+  - host: es2.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: elasticsearch2-es-http
+            port:
+              number: 9200
+
+  - host: kb1.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kibana1-kb-http
+            port:
+              number: 5601
+
+  - host: kb2.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kibana2-kb-http
+            port:
+              number: 5601
