@@ -26,8 +26,4 @@ kubectl get kibana -n elastic
 kubectl get kibana -n elastic
 kubectl get svc -n elastic
 
-start cmd /k "kubectl port-forward svc/elasticsearch1-es-http 9200:9200 -n elastic"
-start cmd /k "kubectl port-forward svc/elasticsearch2-es-http 9201:9200 -n elastic"
-start cmd /k "kubectl port-forward svc/kibana1-kb-http 5601:5601 -n elastic"
-start cmd /k "kubectl port-forward svc/kibana2-kb-http 5602:5601 -n elastic"
 pause
