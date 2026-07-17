@@ -14,6 +14,10 @@ to view credentials execute the powershell script.
 https://kb1.local
 https://kb2.local
 
+CCR is configured in the ECK-supported API key model, so you do not need to hand-wire transport seeds or copy CA files between clusters.
+
+See CCR.md for the replication test flow.
+
 
 
 `

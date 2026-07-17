@@ -7,8 +7,16 @@ metadata:
 spec:
   version: 9.1.0
 
-  remoteClusterServer:
-    enabled: true
+  remoteClusters:
+  - name: leader
+    elasticsearchRef:
+      name: elasticsearch1
+      namespace: elastic
+    apiKey:
+      access:
+        replication:
+          names:
+          - products
   
   nodeSets:
   - name: default
@@ -19,6 +27,14 @@ spec:
 
     podTemplate:
       spec:
+        volumes:
+        - name: leader-ca
+          secret:
+            secretName: elasticsearch1-es-transport-ca-internal
+        volumeMounts:
+          - name: leader-ca
+            mountPath: /usr/share/elasticsearch/config/leader-ca
+            readOnly: true
         containers:
         - name: elasticsearch
           resources:
