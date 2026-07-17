@@ -1,0 +1,8 @@
+curl --location --request POST 'https://es1.local/_license/start_trial?acknowledge=true' \
+--header 'Authorization: ••••••' \
+--data ''
+
+curl --location --request POST 'https://es2.local/_license/start_trial?acknowledge=true' \
+--header 'Authorization: ••••••' \
+--data ''
+

@@ -3,13 +3,20 @@ kind: Elasticsearch
 metadata:
   name: elasticsearch1
   namespace: elastic
+
 spec:
   version: 9.1.0
+
+  remoteClusterServer:
+    enabled: true
+
   nodeSets:
   - name: default
     count: 1
+
     config:
       node.store.allow_mmap: false
+
     podTemplate:
       spec:
         containers:
@@ -21,6 +28,7 @@ spec:
             limits:
               memory: 2Gi
               cpu: 1
+
   http:
     service:
       spec:
@@ -29,4 +37,4 @@ spec:
         - name: https
           port: 9200
           targetPort: 9200
-          nodePort: 30200  
+          nodePort: 30200

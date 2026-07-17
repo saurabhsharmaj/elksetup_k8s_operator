@@ -1,0 +1,1 @@
+kubectl get secret elasticsearch1-es-transport-certs-public -n elastic -o yaml
