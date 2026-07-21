@@ -1,15 +1,28 @@
 # elksetup_k8s_operator
 elksetup_k8s_operator
 
-click on install.bat
+click on 
+===================================
+install.bat
 
 wait to elastic cluster green.
-
+===================================
 nginx.bat
 
-update /etc/hosts  in C:\Windows\System32\drivers\etc\hosts
+click on 
+===================================
+License.bat
 
-to view credentials execute the powershell script.
+final click on powershell script
+===================================
+credentials.bat
+
+//check /etc/hosts have following entries:
+127.0.0.1 es1.local
+127.0.0.1 es2.local
+127.0.0.1 kb1.local
+127.0.0.1 kb2.local
+
 
 https://kb1.local
 https://kb2.local
