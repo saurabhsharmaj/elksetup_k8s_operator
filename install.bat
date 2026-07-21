@@ -15,6 +15,32 @@ echo Deploy Elasticsearch 1
 
 kubectl apply -f templates\elk1\elasticsearch.yaml
 
+echo Waiting for elasticsearch1...
+
+:WAIT_ES1
+
+for /f %%i in ('kubectl get elasticsearch elasticsearch1 -n elastic -o jsonpath^="{.status.phase}"') do set STATUS=%%i
+
+echo Current Status: %STATUS%
+
+if /I NOT "%STATUS%"=="Ready" (
+    timeout /t 10 >nul
+    goto WAIT_ES1
+)
+
+echo Elasticsearch1 is Ready.
+:WAIT_REMOTE
+
+kubectl get svc elasticsearch1-es-remote-cluster -n elastic >nul 2>&1
+
+if errorlevel 1 (
+    echo Waiting for Remote Elasticsearch1 Server...
+    timeout /t 5 >nul
+    goto WAIT_REMOTE
+)
+
+echo Remote Elasticsearch1 Server Ready.
+
 echo Deploy Elasticsearch 2
 
 kubectl apply -f templates\elk2\elasticsearch.yaml

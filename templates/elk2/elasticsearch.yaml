@@ -6,10 +6,15 @@ metadata:
 
 spec:
   version: 9.1.0
-
-  remoteClusterServer:
-    enabled: true
-
+  remoteClusters:
+  - name: elasticsearch1
+    elasticsearchRef:
+      name: elasticsearch1
+    apiKey:
+      access:
+        replication:
+          names:
+            - "*" 
   nodeSets:
     - name: default
       count: 1

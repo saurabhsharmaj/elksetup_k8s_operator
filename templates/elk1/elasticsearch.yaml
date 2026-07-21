@@ -6,10 +6,8 @@ metadata:
 
 spec:
   version: 9.1.0
-
   remoteClusterServer:
     enabled: true
-
   nodeSets:
   - name: default
     count: 1
