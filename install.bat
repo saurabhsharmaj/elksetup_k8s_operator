@@ -11,6 +11,9 @@ timeout /t 20
 
 kubectl create namespace elastic
 
+echo Creating ECK Trial License...
+call license.bat
+
 echo Deploy Elasticsearch 1
 
 kubectl apply -f templates\elk1\elasticsearch.yaml
@@ -55,3 +58,7 @@ kubectl get kibana -n elastic
 kubectl get pods -n elastic
 
 pause
+
+call nginx.bat
+
+echo ECK Installation Completed.
