@@ -5,6 +5,10 @@ metadata:
   namespace: elastic
 spec:
   version: 9.1.0
+  remoteClusters:
+    - name: elasticsearch1
+      elasticsearchRef:
+        name: elasticsearch1
   nodeSets:
   - name: default
     count: 1
