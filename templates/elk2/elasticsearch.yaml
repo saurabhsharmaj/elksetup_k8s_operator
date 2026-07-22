@@ -5,6 +5,8 @@ metadata:
   namespace: elastic
 spec:
   version: 9.1.0
+  remoteClusterServer:
+    enabled: true
   remoteClusters:
     - name: elasticsearch1
       elasticsearchRef:
