@@ -12,4 +12,4 @@ if errorlevel 1 (
     timeout /t 5 >nul
     goto WAIT_REMOTE
 )
-kubectl apply -f templates\nginx\ingress.yaml
+kubectl apply -f ..\templates\nginx\ingress.yaml

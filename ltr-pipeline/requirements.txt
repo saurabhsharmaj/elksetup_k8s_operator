@@ -1,0 +1,12 @@
+elasticsearch
+pandas
+xgboost
+scikit-learn
+skl2onnx 
+onnx 
+onnxruntime 
+hummingbird-ml
+
+skl2onnx 
+onnxmltools 
+onnxruntime
